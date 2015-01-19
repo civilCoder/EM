@@ -1,0 +1,232 @@
+﻿<UserControl x:Class="Grading.myForms.GradeBuildingAdjacentParking"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             Name="fGradeParking">
+    <UserControl.Resources>
+        <ResourceDictionary Source="MyResourceDictionary.xaml" />
+    </UserControl.Resources>
+
+    <Grid Width="320">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="160" Height="160" />
+            <RowDefinition MaxHeight="160" Height="160" />
+            <RowDefinition MaxHeight="40" Height="40" />
+        </Grid.RowDefinitions>
+        <GroupBox Width="320"
+            Header="BUILDING ADJACENT LANDSCAPING"
+    		Height="150"
+    		HorizontalAlignment="Center"
+    		x:Name="GroupBox1"
+    		VerticalAlignment="Top">
+            <Grid Width ="300">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="50" MaxHeight="50" />
+                    <RowDefinition Height="30" MaxHeight="30" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox
+    				Grid.Row="0" Grid.Column="1"
+    				HorizontalAlignment="Right"
+    				x:Name="tbxClearV"
+    				Width="36" Margin="0,4,4,3" />
+
+                <RadioButton Grid.Column="0"
+    				Content="High Point"
+    				Grid.Row="1"
+    				HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+    				x:Name="optHighPoint"
+    				Width="80" />
+
+                <RadioButton Grid.Column="0"
+    				Content="Straight Grade - End to End"
+    				Grid.Row="2"
+    				HorizontalAlignment="Left" VerticalAlignment="Center"
+    				x:Name="optSingleGrade"
+    				Width="176" />
+
+                <TextBox
+    				Grid.Row="1" Grid.Column="0"
+    				HorizontalAlignment="Center" VerticalAlignment="Bottom"
+    				x:Name="tbxS1"
+    				Width="24" Margin="90,9,59,4" />
+
+                <TextBox
+    				Grid.Row="1" Grid.Column="0"
+    				HorizontalAlignment="Right" VerticalAlignment="Bottom"
+    				x:Name="tbxS2"
+    				Width="24" Margin="0,9,19,4" />
+
+                <Button
+    				Content="SELECT HP"
+    				Grid.Column="1" Grid.Row="1"
+    				HorizontalAlignment="Right" VerticalAlignment="Bottom"
+    				x:Name="cmdSelectHP"
+    				Width="85" Margin="0,0,4,4" />
+
+                <Label
+                	Content="Vertical Clearance from FF to FG"
+                	Height="24"
+                	HorizontalAlignment="Left"
+                	x:Name="Label8_Copy"
+                	Width="210"
+                    Grid.Column="0"  Grid.Row="0" />
+
+                <Label Content="S1"
+                       Height="24"
+                       HorizontalAlignment="Left"
+                       Margin="104,1,0,0" VerticalAlignment="Top"
+                       Grid.Row="1" Grid.Column="0"
+                       FontSize="10" />
+
+                <Label Content="S2"
+                	Height="24"
+                	HorizontalAlignment="Left"
+                	Margin="155,1,0,0" VerticalAlignment="Top"
+                	Grid.Row="1" Grid.Column="0"
+                	FontSize="10" />
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1"
+    		Header="BUILDING ADJACENT PARKING"
+    		Height="160"
+    		HorizontalAlignment="Center"
+    		x:Name="GroupBox2"
+    		VerticalAlignment="Top"
+    		Width="320"
+            UseLayoutRounding="True">
+
+            <Grid Width ="300">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="190*" />
+                    <ColumnDefinition Width="110*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+    				Content="Distance from Outside Wall to Curb Line"
+    				HorizontalAlignment="Left"
+    				x:Name="Label8"
+    				Width="224"
+                    UseLayoutRounding="True"
+                    Grid.Row="0" Margin="4,4,0,3"
+                    ScrollViewer.CanContentScroll="True"
+                    Grid.ColumnSpan="2" />
+
+                <ListBox Grid.Column="1"
+    				HorizontalAlignment="Right"
+    				x:Name="cbxDist2Curb"
+    				Width="40"
+                    SelectionChanged="cbxDist2Curb_SelectionChanged"
+                    Margin="0,4,4,5" />
+
+                <ListBox
+    				HorizontalAlignment="Right"
+    				x:Name="cbxCurbHeight"
+    				Width="40"
+    				Grid.Column="1" Grid.Row="1"
+                    SelectionChanged="cbxCurbHeight_SelectionChanged"
+                    Margin="0,5,4,4" />
+
+                <CheckBox
+    				Content="Cross Gutter"
+    				Grid.Row="2"
+    				HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+    				x:Name="chkXGutter"
+    				Width="101"
+                    Padding="4,0,0,0"
+                    Margin="4,8,0,5"
+                    Checked="chkXGutter_Checked"
+                    Height="18" />
+                <ListBox Grid.Row="2"
+    				x:Name="cbxGutterWidth"
+                         Margin="0,4,4,5"
+                         HorizontalAlignment="Right"
+                         Width="40" />
+                <ListBox
+    				Grid.Row="2" Grid.Column="1"
+    				HorizontalAlignment="Right"
+    				x:Name="cbxGutterDepth"
+    				Width="40" Margin="0,4,4,5" />
+
+                <ListBox
+    				Grid.Row="3" Grid.Column="1"
+    				HorizontalAlignment="Right"
+    				x:Name="cbxDist2FL"
+    				Width="40" Margin="0,5,4,4" />
+
+                <Label
+                    Content="Parking Stall Length or Distance to Gutter Flowline (ft.)"
+                    HorizontalAlignment="Left"
+                    Grid.Row="3" Margin="4,3,0,4"
+                    Width="234"
+                    ScrollViewer.CanContentScroll="True" Grid.ColumnSpan="2" />
+                <Label
+                	Content="Curb Height (in.)"
+                	HorizontalAlignment="Left"
+                	x:Name="Label8_Copy1"
+                	Width="224"
+                	UseLayoutRounding="True"
+                	Grid.Row="1"
+                    Margin="4,3,0,4"
+                    ScrollViewer.CanContentScroll="True" Grid.ColumnSpan="2" />
+                <Label
+                    Content="Width (ft)"
+                    HorizontalAlignment="Right"
+                    Height="18"
+                    Margin="0,8,49,0"
+                    Grid.Row="2"
+                    VerticalAlignment="Top"
+                    Width="50"
+                    Padding="0"
+                    IsEnabled="False" />
+                <Label
+                    Content="Depth (in)"
+                    HorizontalAlignment="Right"
+                    Height="18"
+                    Margin="0,8,49,0"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Padding="0"
+                    IsEnabled="False"
+                    Width="56" />
+            </Grid>
+        </GroupBox>
+        <DockPanel Grid.Row="2">
+
+            <Button
+        			Content="Get Limits of Parking"
+        			HorizontalAlignment="Left"
+        			x:Name="cmdLimParking"
+        			Width="120"
+                    Click="cmdLimParking_Click" Margin="12,4,4,4" />
+
+            <Button
+        			Content="Grade Parking"
+        			HorizontalAlignment="Right"
+        			x:Name="cmdGradeParking"
+        			Width="120"
+                    Click="cmdGradeParking_Click" Margin="4,4,12,4" />
+        </DockPanel>
+    </Grid>
+</UserControl>

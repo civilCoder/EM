@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Grading.myForms.GradeSlope" Name="ucGradeSlope"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             Height="Auto" Width="325">
+    <Grid>
+        <WrapPanel Background="Gainsboro">
+            <RadioButton Name="optSurface" Height="20" Margin="10,4,10,2">Target Surface</RadioButton>
+            <RadioButton x:Name="optElevation" Height="20" Margin="20,2,2,4" Content="Target Elevation"/>
+            <TextBlock Name="tbxElev" Background="White" Height="20" Width="40" Margin="4,4,4,4"></TextBlock>
+            <Label Height="30" Margin="10,4,10,0">Select Target Surface</Label>               
+            <Label Height="30" Margin="10,4,10,0">Select Design Surface</Label>
+                
+            <ComboBox Name="cbxSurfaceTar" Width="110" Margin="15,0,30,4"></ComboBox>
+            <ComboBox Name="cbxSurfaceDes" Width="110" Margin="10,0,4,4"></ComboBox>
+            <Label Height="40" Margin="10,4,4,4">
+                <TextBlock>SIDE<LineBreak/>SLOPE (ft:ft):</TextBlock></Label>
+            <TextBlock Name="tbxSlopeH" Background="White" Width="20" Margin="4,18,4,10"></TextBlock>
+            <Label Margin="0,18,4,10">:</Label>
+            <TextBlock Name="tbxSlopeV" Background="White" Width="20" Margin="0,18,4,10"></TextBlock>
+            <Label Height="40" Margin="10,4,4,4">
+                <TextBlock>SAMPLE<LineBreak/> INTERVAL:</TextBlock></Label>
+            <TextBlock Name="tbxInterval" Background="White" Width="40" Margin="4,18,4,10"></TextBlock>
+
+            <GroupBox Header="B1" Width="220" >
+                <WrapPanel >
+                    <Label Height="40" Margin="100,4,4,4">
+                        <TextBlock TextAlignment="Center">BENCH<LineBreak/>WIDTH</TextBlock>
+                    </Label>
+                    <Label Height="40" Margin="4,4,4,4">
+                        <TextBlock TextAlignment="Center">BENCH<LineBreak/>SLOPE</TextBlock>
+                    </Label>
+                    <CheckBox Name="cbxB1" Margin="4,4,4,4">BENCH</CheckBox>
+                    <TextBlock Name="tbxB1Width" Background="White" Width="40" Margin="40,4,4,4"></TextBlock>
+                    <TextBlock Name="tbxB1Slope" Background="White" Width="40" Margin="10,4,4,4"></TextBlock>
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="B2" Width="220" >
+                <WrapPanel Margin="0,0,0,0" >
+                    <Label Height="40" Margin="100,4,4,4">
+                        <TextBlock TextAlignment="Center">BENCH<LineBreak/>WIDTH</TextBlock>
+                    </Label>
+                    <Label Height="40" Margin="4,4,4,4">
+                        <TextBlock TextAlignment="Center">BENCH<LineBreak/>SLOPE</TextBlock>
+                    </Label>
+                    <CheckBox Name="cbxB2" Margin="4,4,4,4">BENCH</CheckBox>
+                    <TextBlock Name="tbxB2Width" Background="White" Width="40" Margin="40,4,4,4"></TextBlock>
+                    <TextBlock Name="tbxB2Slope" Background="White" Width="40" Margin="10,4,4,4"></TextBlock>
+                </WrapPanel>
+            </GroupBox>
+            <Button x:Name="btnBuildSlope" Height="30" Margin="10,10,10,10" Content="BUILD SLOPE" Click="btnBuildSlope_Click"/>
+        </WrapPanel>
+    </Grid>
+</UserControl>

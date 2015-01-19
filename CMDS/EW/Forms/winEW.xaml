@@ -1,0 +1,41 @@
+﻿<Window x:Class="EW.Forms.winEW" Name="wEW" Title="EARTHWORK"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Height="Auto" Width="280" VerticalAlignment="Top" Closing="winEW_Closing" ResizeMode="NoResize" Topmost="True" HorizontalAlignment="Left">
+    <Grid Margin="0,0,0,0" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Center"
+          Width= "{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=AcutalWidth}">
+        <WrapPanel Background="White" HorizontalAlignment="Center" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Top" Width="Auto">
+            <Button Name="cmdSetup" Content="EARTHWORK SETUP" Height="30" Width="256" Margin="2,2,2,2" HorizontalAlignment="Center" VerticalAlignment="Top" Click="cmdSetup_Click"/>
+            <Button Name="cmdBuildAreas" Content="BUILD AREAS" Height="30" Width="256" Margin="2,0,2,2" Click="cmdBuildAreas_Click" HorizontalAlignment="Center"/>
+            <Button Name="cmdTableImport" Height="30" Width="126" Margin="2,0,2,2" Click="cmdTableImport_Click">IMPORT TABLE DATA</Button>
+            <Button Name="cmdTableEdit" Height="30" Width="126" Margin="2,0,2,2" Click="cmdTableEdit_Click">EDIT TABLE DATA</Button>
+            <Button Name ="cmdGetSpreadsheet" Content="CREATE/OPEN EW SPREADSHEET" Height="30" Width="256" Margin="2,0,2,2" Click="cmdGetSpreadsheet_Click" HorizontalAlignment="Center"/>
+            <Button Name ="cmdGetSegs" Content="COPY CPNT-ON SURFACE DATA" Height="30" Width="256" Margin="2,0,2,2" Click="cmdGetSegs_Click" HorizontalAlignment="Center"/>
+            <Button Name ="cmdMakeSurfaceSG" Content="MAKE SURFACE SG" Height="30" Width="172" Margin="2,0,2,2" HorizontalAlignment="Center" Click="cmdMakeSurfaceSG_Click"/>
+            <Button Name ="cmdResetSG" Content="RESET" Height="30" Width="80" Margin="2,0,2,2" HorizontalAlignment="Center" Click="cmdResetSG_Click"/>
+            <Button Name ="cmdMakeSurfaceOX" Content="MAKE SURFACE OX" Height="30" Width="172" Margin="2,0,2,2" HorizontalAlignment="Center" Click="cmdMakeSurfaceOX_Click"/>
+            <Button Name ="cmdResetOX" Content="RESET" Height="30" Width="80" Margin="2,0,2,2" HorizontalAlignment="Center" Click="cmdResetOX_Click"/>
+            <GroupBox Header="Make Surface BOT" 
+                      Height="Auto" 
+                      Width="Auto"
+                      BorderBrush="#FF031723">
+                <StackPanel HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="Auto">
+                    <Button Name ="cmdGrid" Content="SET UP GRID POINTS" HorizontalAlignment="Left" Height="30" Width="244" Margin="2,2,2,2" Click="cmdGrid_Click"/>
+                    <Button Name ="cmdTest" Content="DETERMINE BOTTOM ELEVATION" HorizontalAlignment="Left" Height="30" Width="244" Margin="2,0,2,2" Click="cmdTest_Click"/>
+                    <Button Name ="cmdMakeSurfaceBOT" Content="MAKE SURFACE BOT" HorizontalAlignment="Left" Height="30" Width="244" Margin="2,0,2,2" Click="cmdMakeSurfaceBOT_Click"/>
+                </StackPanel>
+            </GroupBox>
+            <Button Name ="cmdMakeSurfaceVolEXIST_BOT" Content="MAKE CUT VOLUME SURFACE" Height="30" Width="258" Margin="2,2,2,2" Click="cmdMakeSurfaceVolEXIST_BOT_Click" HorizontalAlignment="Center"/>
+            <Button Name ="cmdMakeSurfaceVolBOT_SG" Content="MAKE FILL VOLUME SURFACE" Height="30" Width="258" Margin="2,0,2,2" Click="cmdMakeSurfaceVolBOT_SG_Click" HorizontalAlignment="Center"/>
+            <Button Name ="cmdBalanceSite" Content="BALANCE SITE" Height="30" Width="258" Margin="2,0,2,2" Click="cmdBalanceSite_Click" HorizontalAlignment="Center"/>
+            <Button Name ="cmdUpdateWS" Content="DISPLAY/UPDATE WORKSHEET" Height="30" Width="258" Margin="2,0,2,2" Click="cmdUpdateWS_Click" HorizontalAlignment="Center"/>
+            <Button Name ="cmdDisplaySections" Content="DISPLAY SECTIONS" Height="30" Width="258" Margin="2,0,2,4" Click="cmdDisplaySections_Click" HorizontalAlignment="Center"/>
+
+        </WrapPanel>
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,75 @@
+﻿List<double> y = new List<double>();
+foreach(double p in wallSegElevs.OrderBy(p => p)){
+	y.Add(p);
+}
+
+
+var nameQuery = from name in listDesc
+				where name.Contains("BRK")
+				orderby name descending
+				select name;
+List<string> descs = new List<string>();
+foreach (string desc in nameQuery) {
+	descs.Add(desc);
+}
+
+var byDesc = from brklin in brkLineSum
+			  group brklin by brklin.Desc
+				  into newGroup
+				  orderby newGroup.Key
+				  select newGroup;
+
+ ObjectIdCollection ids = new ObjectIdCollection();
+ foreach (var brkData in byDesc)
+ {
+	 string desc = brkData.Key;
+	 foreach (var brklinData in brkData)
+	 {
+		 ids.Add(brklinData.id);
+	 }
+	 aeccSurf.addAeccBreaklines(ids, desc);
+ }
+
+ 
+
+
+Acad::ErrorStatus es;
+AcDbDatabase *pDb
+	  = acdbHostApplicationServices()->workingDatabase();
+ 
+ACHAR str[132];   
+int rt = acedGetString(true, L"\nEnter a string: ", str); 
+if(rt != RTNORM)  
+{ 
+	acutPrintf(L"\nInvalid input, try again.");  
+	return;   
+}   
+AcGiTextStyle iStyle;
+AcDbTextStyleTable* pTable = NULL;   
+AcDbTextStyleTableRecord* pRecord = NULL;  
+try
+{  
+	pDb->getTextStyleTable(pTable, AcDb::kForRead);
+	const ACHAR styleName[] = L"STANDARD"; 
+	es = pTable->getAt(styleName, pRecord, AcDb::kForRead);
+	es = fromAcDbTextStyle(iStyle, pRecord->objectId());  
+	pRecord->close();       
+	pTable->close();  
+} 
+catch(const Acad::ErrorStatus es) 
+{   
+	acutPrintf(L"\nError: %s", acadErrorStatusText(es));   
+	pRecord->close();  
+	pTable->close();   
+} 
+AcGePoint2d pt = iStyle.extents (
+									str,
+									Adesk::kFalse,
+									_tcslen(str),
+									Adesk::kTrue
+								); 
+// get the width   
+acutPrintf(L"\nText string width is: \t<%f>.", pt.x);
+// get the height too 
+acutPrintf(L"\nText string height is: \t<%f>.", pt.y);
+

@@ -1,0 +1,30 @@
+﻿<Window x:Class="EW.Forms.winBuildAreas" Name="wBuildAreas"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Width="Auto" Height="254" 
+             Title="BUILD AREAS" 
+             ResizeMode="NoResize" 
+             SizeToContent="WidthAndHeight" 
+             Topmost="True" 
+             HorizontalAlignment="Center" 
+             HorizontalContentAlignment="Center" Closing="wBuildAreas_Closing" 
+              >
+    <Grid Width="{Binding RelativeSource={RelativeSource FindAncestor,
+           AncestorType={x:Type UserControl}}, Path=ActualWidth}">
+        <StackPanel 
+             Background="White"
+             HorizontalAlignment="Left" 
+             VerticalAlignment="Top" 
+             Width="Auto" Height="Auto">
+            <Button Name="cmdTransfer" Content="TRANSFER IN" Height="30" Margin="2,2,2,0" Click="cmdTransfer_Click"/>
+            <Button x:Name="cmdIdLayer" Content="ID XREF LAYER" Height="30"  Margin="2,2,2,0" Click="cmdIdLayer_Click"/>
+            <Button x:Name="cmdSelectLayers2Freeze" Content="FREEZE XREF LAYERS" Height="30" Margin="2,2,2,0" Click="cmdSelectLayers2Freeze_Click"/>
+            <Button x:Name="cmdBoundary" Content="BOUNDARY COMMAND" Height="30" Margin="2,2,2,0" Click="cmdBoundary_Click"/>
+            <Button x:Name="cmdMakePolyline" Content="MAKE POLYLINE" Height="30" Margin="2,2,2,0" Click="cmdMakePolyline_Click"/>
+            <Button x:Name="cmdSAP" Content="SET AREA PROPERTIES" Height="30" Margin="2,2,2,0" Click="cmdSAP_Click"/>
+            <Button x:Name="cmdCheckAreaLimits" Content="CHECK AREA LIMITS" Height="30" Margin="2,2,2,0" Click="cmdCheckAreaLimits_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

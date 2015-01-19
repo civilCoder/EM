@@ -1,0 +1,86 @@
+﻿<Window x:Class="MNP.winMNP" Name="wMNP"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Title="MNP" Height="610" Width="430" Closing="wMNP_Closing">
+    <Window.Resources>
+        <ResourceDictionary Source="MyResourceDictionary.xaml" />
+    </Window.Resources>
+
+    <Grid>
+        <WrapPanel Width="Auto" Height="Auto" >
+            <RadioButton Name="optSD" Content="SD" Width="Auto" Height="30" Margin="4,4,40,4" HorizontalAlignment="Right" VerticalAlignment="Top" Click="optSD_Click"></RadioButton>
+            <RadioButton Name="optSS" Content="SS" Width="Auto" Height="30" Margin="40,4,40,4" HorizontalAlignment="Right" VerticalAlignment="Top" Click="optSS_Click" ></RadioButton>
+            <RadioButton Name="optWTR" Content="WTR" Width="Auto" Height="30" Margin="40,4,40,4" HorizontalAlignment="Right" VerticalAlignment="Top" Click="optWTR_Click"></RadioButton>
+            <RadioButton Name="optFIRE" Content="FIRE" Width="Auto" Height="30" Margin="40,4,4,4" HorizontalAlignment="Right" VerticalAlignment="Top" Click="optFIRE_Click"></RadioButton>
+            <WrapPanel Width="168">
+                <Button Name="cmdAlignMake" Width="80" Height="50" Click="cmdAlignMake_Click">
+                    <TextBlock TextAlignment="Center">Make<LineBreak/>Alignment</TextBlock>
+                </Button>
+                <Button Name="cmdAlignActivate" Width="80" Height="50" Click="cmdAlignActivate_Click" >
+                    <TextBlock TextAlignment="Center">Activate<LineBreak/>Alignment</TextBlock>
+                </Button>
+                <Button Name="cmdEdit" Content="Edit Alignment" Width="164" Height="40" Click="cmdEdit_Click"></Button>
+                <Button Name="cmdProfileView" Content="Display Profile View" Width="164" Height="40" Click="cmdProfileView_Click"></Button>
+                <Button Name="cmdMakePipeNetwork" Content="Make Pipe Network" Width="164" Height="40" Click="cmdMakePipeNetwork_Click"></Button>
+                <Button Name="cmdEditNetwork" Content="Edit Pipe Network" Width="164" Height="40"></Button>
+                <Button Name="cmdAddNetworkToProfileView" Content="Add Network to Profile View" Width="164" Height="40" Click="cmdAddNetworkToProfileView_Click"></Button>
+            </WrapPanel>
+            <GroupBox Header="Alignment Options">
+                <WrapPanel Margin="0,0" Orientation="Vertical" Width="230">
+                    <CheckBox x:Name="cbxAddCurves" Content="Add curves at PIs (default radius = 200')" Width="240" Margin="0" Checked="cbxAddCurves_Checked"></CheckBox>
+                    <GroupBox Header="Alignment Name Builder">
+                        <WrapPanel OpacityMask="#FFF7EDED">
+                            <RadioButton Name="optAlpha" Content="Alpha" Width="90" Click="optAlpha_Click"></RadioButton>
+                            <RadioButton Name="optNumeric" Content="Numeric" Width="90" Checked="optNumeric_Checked"></RadioButton>
+                            <Label Width="Auto">TYPE</Label>
+                            <Label Width="Auto">LINE/LAT</Label>
+                            <Label Width="Auto">INDEX</Label>
+                            <Label Width="Auto">SUFFIX</Label>
+                            <TextBlock Name="tbxType" Width="40"/>
+                            <ComboBox Name="cbxLineLat" Width="60" SelectionChanged="cbxLineLat_SelectionChanged"></ComboBox>
+                            <TextBlock Name="tbxIndex" Width="40"/>
+                            <TextBlock Name="tbxSuffix" Width="40"/>
+                            <GroupBox Header="Alignment Style">
+                                <ComboBox Name="cbxAlignStyle" Width="180" SelectionChanged="cbxAlignStyle_SelectionChanged"></ComboBox>
+                            </GroupBox>
+                            <GroupBox Header="Alignment Label Set Style">
+                                <ComboBox Name="cbxAlignLabelSetStyles" Width="180" SelectionChanged="cbxAlignLabelSetStyles_SelectionChanged"></ComboBox>
+                            </GroupBox>
+                        </WrapPanel>
+                    </GroupBox>
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="Profile Options">
+                <WrapPanel OpacityMask="#FFF7EDED">
+                    <GroupBox Header="Profile Style - Design">
+                        <ComboBox Name="cbxProfileStyleDE" Width="170" SelectionChanged="cbxProfileStyleDE_SelectionChanged"></ComboBox>
+                    </GroupBox>
+                    <GroupBox Header="Profile Style - Exist">
+                        <ComboBox Name="cbxProfileStyleEX" Width="170" SelectionChanged="cbxProfileStyleEX_SelectionChanged"></ComboBox>
+                    </GroupBox>
+                    <GroupBox Header="Profile Style - Design">
+                        <ComboBox Name="cbxProfileLabelSetDE" Width="170" SelectionChanged="cbxProfileLabelSetDE_SelectionChanged"></ComboBox>
+                    </GroupBox>
+                    <GroupBox Header="Profile Style - Exist">
+                        <ComboBox Name="cbxProfileLabelSetEX" Width="170" SelectionChanged="cbxProfileLabelSetEX_SelectionChanged"></ComboBox>
+                    </GroupBox>
+                    <GroupBox Header="Profile View Style">
+                        <ComboBox Name="cbxProfileViewStyle" Width="170" SelectionChanged="cbxProfileViewStyle_SelectionChanged"></ComboBox>
+                    </GroupBox>
+                    <DockPanel>
+                        <StatusBar DockPanel.Dock="Bottom" Height="30" Width="400">
+                            <StatusBarItem>
+                                <WrapPanel Orientation="Vertical" Width="400">
+                                    <TextBlock Text="Active Alignment: " Width="Auto" Height="20" Margin="2,2,2,2"/>
+                                    <TextBlock Name="tbxActiveAlign" Width="200" Height="20"></TextBlock>
+                                </WrapPanel>
+                            </StatusBarItem>
+                        </StatusBar>
+                    </DockPanel>
+                </WrapPanel>
+            </GroupBox>
+        </WrapPanel>
+    </Grid>
+</Window>

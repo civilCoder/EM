@@ -1,0 +1,44 @@
+﻿<UserControl
+    x:Class="Grading.myForms.GradeTiltedPlane"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:forms="clr-namespace:Grading.myForms"
+    Name="fGradeTiltedPlane"
+    mc:Ignorable="d"
+    d:DesignWidth="300" d:DesignHeight="300">
+    <GroupBox Header="TILTED PLANE DESIGN">
+        <Grid Margin="0,0,0,0" HorizontalAlignment="Left" Width="280" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="120" />
+            </Grid.RowDefinitions>
+            <StackPanel
+                Grid.Column="0" Grid.Row="1"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="280" Margin="2,3,0,-60">
+                <RadioButton x:Name="tp1"
+            		Content="Tilted Plane - 2 Points, Width, and Cross Slope"
+            		Margin="0, 4, 0, 4" />
+                <RadioButton x:Name="tp2"
+                	Content="Tilted Plane - 2 Corners, Center Elevation, Slope,&#xA;and Direction of Slope"
+                	Margin="0,4,0,4" />
+                <RadioButton x:Name="tp3"
+                	Content="Tilted Plane - 3 Points"
+                	Margin="0,4,0,4" />
+                <RadioButton x:Name="tp4"
+                	Content="Tilted Plane - 3 Points (Extended)"
+                	Margin="0,4,0,4" />
+            </StackPanel>
+            <Button x:Name="btnSelPnts"
+                Content="Select Points"
+                Grid.Row="2"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Height="47"  Width="108" Margin="165,8,0,0" Click="btnSelPnts_Click" />
+        </Grid>
+    </GroupBox>
+</UserControl>

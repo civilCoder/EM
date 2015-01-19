@@ -1,0 +1,19 @@
+﻿<Window x:Class="EW.Forms.winSurfaces" Name="wSurfaces"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Title="Select Surfaces for Earthwork Calculation" ResizeMode="NoResize"   
+             SizeToContent="WidthAndHeight" Topmost="True" HorizontalAlignment="Center" Closing="wSurfaces_Closing" Width="400" Activated="wSurfaces_Activated">
+    <Grid Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=ActualWidth}">
+        <WrapPanel Background="White" Width="Auto" Height="Auto">
+            <Label Content="BASE SURFACE (EXIST)" Width="140" Height="30" Margin="0,10,20,10"/>
+            <ListBox x:Name="lbxBase" Width="220" Height="30" Margin="0,10,10,10"/>
+            <Label Content="COMPARISON SURFACE" Width="140" Height="30" Margin="0,10,20,10"/>
+            <ListBox x:Name="lbxComp" Width="220" Height="30" Margin="0,10,10,10"/>
+
+            <Button x:Name="cmdOK" Content="OK" Height="30" Width=" 120" Margin="260,10,0,10" HorizontalAlignment="Center" Click="cmdOK_Click"/>
+
+        </WrapPanel>
+    </Grid>
+</Window>

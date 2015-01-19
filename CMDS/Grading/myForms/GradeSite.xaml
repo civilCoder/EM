@@ -1,0 +1,219 @@
+﻿<UserControl x:Class="Grading.myForms.GradeSite"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+    <UserControl.Resources>
+        <ResourceDictionary Source="MyResourceDictionary.xaml" />
+    </UserControl.Resources>
+
+    <Grid Width="Auto" HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width= "Auto" />
+            <ColumnDefinition Width= "Auto" />
+            <ColumnDefinition Width= "Auto" />
+            <ColumnDefinition Width= "Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Button
+                Content="RT"
+                HorizontalAlignment="Center"
+                x:Name="cmdRT"
+                Width="70"
+                Grid.Row="0" Grid.Column="0" Click="cmdRT_Click" ToolTip="Set Point by Rate of Grade or Elevation Difference" />
+        <Button
+                Content="RL"
+                HorizontalAlignment="Center"
+                x:Name="cmdRL"
+                Width="70"
+                Grid.Row="0" Grid.Column="1" Click="cmdRL_Click" ToolTip="Set Point and Breakline by Rate of Grade or Elevation Difference" />
+        <Button
+                Content="RTr"
+                HorizontalAlignment="Center"
+                x:Name="cmdRTr"
+                Width="70"
+                Grid.Row="0" Grid.Column="2" Click="cmdRTr_Click" ToolTip="Point and Breakline off of Breakline by Rate of Grade or Elevation Difference (= SPG + RT + BL)" />
+        <Button
+                Content="RTd"
+                HorizontalAlignment="Center"
+                x:Name="cmdRTd"
+                Width="70"
+                Grid.Row="0" Grid.Column="3" Click="cmdRTd_Click" ToolTip="Set Point XY by direction and distance.  Elevation by grade, DeltaZ or Target Elevation"/>
+        <Button
+                Content="MB"
+                HorizontalAlignment="Center"
+                x:Name="cmdMB"
+                Width="70"
+                Grid.Row="1" Grid.Column="0" Click="cmdMB_Click" ToolTip="Add Breakline between two points."/>
+
+        <Button
+                Content="BL"
+                HorizontalAlignment="Center"
+                x:Name="cmdBL"
+                Width="70"
+                Grid.Row="1" Grid.Column="1" Click="cmdBL_Click" ToolTip="Add Breakline between two points (same as MB)."/>
+        <Button
+                Content="GB"
+                HorizontalAlignment="Center"
+                x:Name="cmdGB"
+                Width="70"
+                Grid.Row="1" Grid.Column="2" Click="cmdGB_Click" ToolTip="GB Breakline (3dPolyline) and 2d line on layer GB" />
+        <Button
+                Content="MBL"
+                HorizontalAlignment="Center"
+                x:Name="cmdMBL"
+                Width="70"
+                Grid.Row="2" Grid.Column="3" Click="cmdMBL_Click" ToolTip="Multi-Segment Breakline (3dPolyline) connecting multiple points."/>
+        <Button
+                Content="BV"
+                HorizontalAlignment="Center"
+                x:Name="cmdBV"
+                Width="70" Height="96" Grid.RowSpan="2"
+                Grid.Row="2" Grid.Column="0" Click="cmdBV_Click" ToolTip="Valley Gutter Breaklines; 2d FL and Edge" />
+        <Button
+                Content="BG"
+                HorizontalAlignment="Center"
+                x:Name="cmdBG"
+                Width="70"
+                Grid.Row="5" Grid.Column="3" Click="cndBG_Click" ToolTip="Curb, Lip of Gutter, and Bench Offsets from FL - 3dPolylines as Breaklines" Margin="4" />
+        <Button
+                Content="BC"
+                HorizontalAlignment="Center"
+                x:Name="cmdBC"
+                Width="70"
+                Grid.Row="4" Grid.Column="3" Click="cmdBC_Click" ToolTip="Curb and Bench Offsets from FL - 3dPolylines as Breaklines" Margin="4" />
+        <Button
+                Content="UC"
+                HorizontalAlignment="Center"
+                x:Name="cmdUC"
+                Width="70"
+                Grid.Row="4" Grid.Column="0" Click="cmdUC_Click" ToolTip="Update Contol (GBs, FLs, Gutter, etc.)" />
+        <Button
+                Content="BFL"
+                HorizontalAlignment="Center"
+                x:Name="cmdBFL"
+                Width="70"
+                Grid.Row="1" Grid.Column="3" Click="cmdBFL_Click" ToolTip="FL Breakline (3dPolyline) and 2d line on layer FL" />
+        <Button
+                Content="RB"
+                HorizontalAlignment="Center"
+                x:Name="cmdRB"
+                Width="70"
+                Grid.Row="6" Grid.Column="3" Click="cmdRB_Click" ToolTip="Clear existing Breaklines from surface then add all Breaklines and Rebuild CPNT-ON " IsManipulationEnabled="True" />
+        <Button
+                Content="RB0"
+                HorizontalAlignment="Center"
+                x:Name="cmdRB0"
+                Width="70"
+                Grid.Row="5" Click="cmdRB0_Click" ToolTip="Remove Breaklines with 0 vertices"/>
+        <Button
+                Content="UBP"
+                HorizontalAlignment="Center"
+                x:Name="cmdUBP"
+                Width="70"
+                Grid.Row="6" Grid.Column="0" Click="cmdUBP_Click" ToolTip="Update Breakline and Point Link Data"/>
+        <Button
+                Content="RBL"
+                HorizontalAlignment="Center"
+                x:Name="cmdRBL"
+                Width="70"
+                Grid.Row="6" Grid.Column="1" Click="cmdRBL_Click" ToolTip="Reset Breaklines in Surface."/>
+        <Button
+                Content="DBL"
+                HorizontalAlignment="Center"
+                x:Name="cmdDBL"
+                Width="70"
+                Grid.Row="6" Grid.Column="2" Click="cmdDBL_Click"  ToolTip="Delete Breaklines from Surface and Drawing."/>
+        <Button
+                Content="Print Dict."
+                HorizontalAlignment="Center"
+                x:Name="cmdPD"
+                Width="70"
+                Grid.Row="5" Grid.Column="1" Click="cmdPD_Click" ToolTip="Display Link data for point (for BV, BC, BG, ABC, ABG)."/>
+        <Button
+        	    Content="GBM"
+        	    HorizontalAlignment="Center"
+        	    x:Name="cmdGBM"
+        	    Width="70"
+        	    Grid.Row="3" Grid.Column="3" Click="cmdGBM_Click" ToolTip="Multi-Segment Breakline with 2d Grade Break lines."/>
+        <Button
+        	    Content="ABC"
+        	    HorizontalAlignment="Center"
+        	    x:Name="cmdABC"
+        	    Width="70"
+        	    Grid.Row="4" Grid.Column="2" Click="cmdABC_Click" ToolTip="Curb and Bench Offsets from FL on Arc - 3dPolylines as Breaklines" Margin="10,4,9,4" />
+        <Button
+        	    Content="ABG"
+        	    HorizontalAlignment="Center"
+        	    x:Name="cmdABG"
+        	    Width="70"
+        	    Grid.Row="5" Grid.Column="2" Click="cndABG_Click" ToolTip="Curb, Lip of Gutter, and Bench Offsets from FL on Arc - 3dPolylines as Breaklines" Margin="12,4" />
+
+        <GroupBox Header="VGR CONTROL"
+                 BorderBrush="Black" BorderThickness="1"
+                  Width="150" Height="48"
+                  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                  VerticalAlignment="Bottom"
+                  FontSize="11">
+            <Grid Width="160" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <RadioButton
+                    x:Name="optFL"
+                    GroupName="control"
+                    Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="24" Checked="optFL_Checked">
+                    FL
+                </RadioButton>
+                <RadioButton
+                    x:Name="optEDGE"
+                    GroupName="control"
+                    Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Height="24" Checked="optEDGE_Checked">
+                    EDGE
+                </RadioButton>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="SOURCE"
+                  BorderBrush="Black" BorderThickness="1"
+                  Width="150" Height="48"
+                  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                  VerticalAlignment="Bottom"
+                  FontSize="11">
+            <Grid Width="160" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <RadioButton
+                    x:Name="optPNTS"
+                    GroupName="source"
+                    Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="24" Checked="optPNTS_Checked">
+                    PNTS
+                </RadioButton>
+                <RadioButton
+                    x:Name="optBRKLINE"
+                    GroupName="source"
+                    Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Height="24">
+                    BRKLINE
+                </RadioButton>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>
